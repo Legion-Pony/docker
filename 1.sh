@@ -54,7 +54,9 @@ case $choice in
 
    [3] ) echo "Enter path to new directory:"
          read path;
+	 if [ ! -d "$path" ]; then
          mkdir $path;
+	 fi;
          usermod -d $path $name;
          chown -R $name $path;
          chmod -R ugo+rw $path;
